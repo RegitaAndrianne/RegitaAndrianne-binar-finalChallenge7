@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('partials/head', {
+    titlePage: 'Register'
+}); %> 
+
+<body class="bg1">
+  <div class="container-fluid">
+    <div class="row d-flex justify-content-center align-items-center m-0" style="height: 100vh;">
+      <div class="regis_outer">
+        <form action="/register" method="POST" autocomplete="off" class="bg-light border p-3">
+          <div class="form-row">
+            <h1 class="title my-3">Register</h1>
+            <div class="col-12">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
+                </div>
+                <input name="username" type="text" value="" class="input form-control" id="username" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" />
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1"><i class="fas fa-envelope"></i></span>
+                </div>
+                <input name="email" type="email" value="" class="input form-control" id="email" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1" />
+              </div>
+            </div>
+
+            <div class="col-12">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1"><i class="fas fa-lock"></i></span>
+                </div>
+                <input name="password" type="password" value="" class="input form-control" id="password" placeholder="Password" required="true" aria-label="password" aria-describedby="basic-addon1" />
+                <div class="input-group-append">
+                  <span class="input-group-text" onclick="password_show_hide();">
+                    <i class="fas fa-eye" id="show_eye"></i>
+                    <i class="fas fa-eye-slash d-none" id="hide_eye"></i>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="col-12">
+              <button type="submit" class="btn " type="submit">Submit</button>
+            </div>
+            <div class="col-sm-12 pt-3 text-right">
+              <p class="registered"><a href="/login">Already have an account?</a></p>
+            </div>
+            <a class="col-sm-12 pt-0 text-right text-danger" href="/home">Cancel</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <style>
+ 
+  .regis_outer {
+    width: 360px;
+    max-width: 100%;
+  }
+  .logo_outer{
+    text-align: center;
+  }
+  .logo_outer img{
+    width:120px;
+    margin-bottom: 40px;
+  }
+
+  h1 {
+    font-size: 30px!important;  
+    color: black!important;
+    letter-spacing: 0;
+
+  }
+
+  .btn {
+    background-color: #04AA6D;
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 50%;
+    opacity: 0.8;
+  }
+
+  </style>
+
+  <script>
+    function password_show_hide() {
+    var x = document.getElementById("password");
+    var show_eye = document.getElementById("show_eye");
+    var hide_eye = document.getElementById("hide_eye");
+    hide_eye.classList.remove("d-none");
+    if (x.type === "password") {
+      x.type = "text";
+      show_eye.style.display = "none";
+      hide_eye.style.display = "block";
+    } else {
+      x.type = "password";
+      show_eye.style.display = "block";
+      hide_eye.style.display = "none";
+    }
+  }
+  </script>
+</body>
+</html>

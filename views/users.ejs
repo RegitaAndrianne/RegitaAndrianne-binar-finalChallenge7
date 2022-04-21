@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/head', {
+    titlePage: 'Users'
+}); %> 
+<body>
+    <div class="bg1">
+        <%- include('partials/navbar-logout') %> 
+        <%- include('partials/sidebar') %> 
+
+        <!-- tablenya -->
+        <div class="container-fluid">
+            <div class="row">     
+              <main role="main" class="col-md-9 ms-sm-auto col-lg-10 pt-3 px-4">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+                  <h1 style="font-size: 36px!important;" class="navbar-logo">Data Users</h1>
+                </div>
+      
+                <!-- <a href="#">
+                  <button type="button" class="btn btn-primary mb-3">
+                    <span data-feather="plus"></span>
+                    Add New Users
+                  </button>
+                </a> -->
+      
+                <div class="table-responsive">
+                  <table class="table text-white table-dark opacity-75">
+                    <thead>
+                      <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">Email</th>
+                        <th scope="col"></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <% users.forEach((user) => { %> 
+                        <tr>
+                          <td><%= user.id %> </td>
+                          <td><%= user.username %> </td>
+                          <td><%= user.email %> </td>
+                          <td>
+                            <a href="/user/edit-user/<%= user.id %> "> 
+                              <button type="button" class="btn btn-warning mb-3">
+                                Edit
+                              </button>
+                            </a>
+                            <a href="/user/delete/<%= user.id %>">
+                              <button type="button" class="btn btn-danger mb-3">
+                                Delete
+                              </button>
+                            </a>
+                          </td>
+                        </tr>
+                        <% }); %> 
+                    </tbody>
+                  </table>
+                </div>
+              </main>
+            </div>
+        </div>
+    </div>
+    <%- include('partials/script') %> 
+</body>
+</html>
